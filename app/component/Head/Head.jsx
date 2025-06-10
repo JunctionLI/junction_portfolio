@@ -7,7 +7,7 @@ export default function Head() {
 
     const [hovered, setHovered] = useState(false);
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
 
       <div className={styles.textSection}>
         <p className={styles.title}>Hi! I'm Junction Li</p>
@@ -16,7 +16,7 @@ export default function Head() {
         </p>
         <div className={styles.socialIcons}>
 
-          <a href="https://github.com/JunctionLI" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/JunctionLI" target="_blank" rel="noopener noreferrer">  {/**no opener, no referrer when open new page, current page information would be forward to new page */}
           <Image alt="GitHub" src="/assets/github.png" width={40} height={40} />
           </a> 
           <a href="https://www.instagram.com/junction_photograph/" target="_blank" rel="noopener noreferrer">
@@ -44,6 +44,6 @@ export default function Head() {
             onMouseLeave={() => setHovered(false)}
             />
       </div>
-    </div>
+    </section>
   );
 }

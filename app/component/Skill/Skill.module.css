@@ -1,0 +1,97 @@
+/* Skill.module.css */
+
+.skillSection {
+  display: flex;
+  color: #e55c00;
+  padding: 4rem 2rem;
+  gap: 3rem;
+  min-height: 100vh;
+}
+
+.skillLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.skillBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skillBlockTitle{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.skillBlock p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #e55c00;
+}
+
+.skillIcons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconLabel {
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.iconWrapper:hover .iconLabel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.iconWrapper :global(img) {
+  border-radius: 12px;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.iconWrapper:hover :global(img) {
+  transform: scale(1.1);
+}
+
+.skillRight {
+  flex: 1;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background-color: white;
+  z-index: 10;
+  color: #ff7a00;
+}
+
+.skillRight span {
+  color: transparent;
+  -webkit-text-stroke: 1px #e55c00;
+}
