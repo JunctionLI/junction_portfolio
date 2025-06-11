@@ -2,18 +2,37 @@
 import Image from "next/image";
 import styles from "./Head.module.css";
 import { useState } from "react";
+import RotatingText from './RotatingText';
+import Aurora from './Aurora';
+import ProfileCard from './ProfileCard'
 
 export default function Head() {
 
     const [hovered, setHovered] = useState(false);
   return (
     <section className={styles.container}>
-
+      <Aurora
+        colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+        blend={0.5}
+        amplitude={1.0}
+        speed={0.5}
+      />
+  
       <div className={styles.textSection}>
-        <p className={styles.title}>Hi! I'm Junction Li</p>
-        <p className={styles.subtitle}>
-          A Web & Graphic Designer, Photographer, and Social Media Creator.
-        </p>
+        <p className={styles.title}>Hi, I'm</p>
+        <p className={styles.name}> Junction Li </p>
+        <RotatingText
+          texts={['A Web&Graphic Designer', 'A Photographer', 'A Social Media Creator']}
+          mainClassName="h-[40px] min-w-[280px] text-lg text-white sm:text-xl md:text-2xl text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+          staggerFrom={"last"}
+          initial={{ y: "100%" }}
+          animate={{ y: 0 }}
+          exit={{ y: "-120%" }}
+          staggerDuration={0.025}
+          splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+          transition={{ type: "spring", damping: 30, stiffness: 400 }}
+          rotationInterval={2000}
+        />
         <div className={styles.socialIcons}>
 
           <a href="https://github.com/JunctionLI" target="_blank" rel="noopener noreferrer">  {/**no opener, no referrer when open new page, current page information would be forward to new page */}
@@ -28,22 +47,34 @@ export default function Head() {
           </a>
 
         </div>
-        <a href="/assets/junction-cv.pdf" download className={styles.downloadBtn}>
-          Download CV
-        </a>
+
+        <div className={styles.buttonContainer}>
+              <a href="/assets/junction-cv.pdf" download className={styles.downloadBtn}>
+                Download CV
+              </a>
+        </div>
 
       </div>
 
       <div className={styles.imageSection}>
-        <Image
-            src={hovered ? "/assets/portrait2.png" : "/assets/portrait.png"}
-            alt="Junction Li portrait"
-            width={600}
-            height={800}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            />
+
+          <ProfileCard
+            name="Junction Li"
+            title="Web&Graphic Designer / Photographer"
+            handle="junctionphoto_ca"
+            status="Online"
+            contactText="Contact Me"
+            avatarUrl="/assets/portrait3.png"
+            showUserInfo={true}
+            enableTilt={true}
+            onContactClick={() => console.log('Contact clicked')}
+          />
+
       </div>
+        
+
+
     </section>
+
   );
 }
