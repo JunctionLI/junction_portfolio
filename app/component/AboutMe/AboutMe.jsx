@@ -1,3 +1,4 @@
+"use client"
 import styles from "./AboutMe.module.css";
 
 export default function AboutMe() {
@@ -5,6 +6,9 @@ export default function AboutMe() {
     <section className={styles.aboutSection}>  {/**use section instead of div, It represents a clearly defined section of content with semantic meaning. */}
       <div className={styles.aboutLeft}>
         <h1>ABOUT <span className={styles.outlined}>ME</span></h1>
+              <div className={styles.imageSection}>
+
+      </div>
       </div>
 
       <div className={styles.aboutRight}>

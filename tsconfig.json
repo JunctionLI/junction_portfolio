@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "app/component/Head/Scroll.jsx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -1,17 +1,41 @@
-import AboutMe from "./component/AboutMe/AboutMe";
+import VerticalMenu from "./component/VerticalMenu/VerticalMenu";
+import Squares from "./component/Background/Squares";
 import Head from "./component/Head/Head";
-import Project from "./component/Project/Project";
+import AboutMe from "./component/AboutMe/AboutMe";
 import Skill from "./component/Skill/Skill";
+import Project from "./component/Project/Project";
 
+export default function Home() {
+  return (
+    <>
+      <VerticalMenu />
 
-export default function Home(){
-  return(
-    <main>
+      <Squares
+        className="square-canvas"
+        speed={0.5}
+        squareSize={40}
+        direction="down"
+        borderColor="#c2c2c2"
+        hoverFillColor="#f2f2f2"
+      />
 
-      <Head/>
-      <AboutMe/>
-      <Skill/>
-      <Project/>
-    </main>
-  )
+      <main style={{ marginLeft: "130px", padding: "2rem" }}>
+        <section id="Home">
+          <Head />
+        </section>
+
+        <section id="About Me">
+          <AboutMe />
+        </section>
+
+        <section id="Skills">
+          <Skill />
+        </section>
+
+        <section id="Projects">
+          <Project />
+        </section>
+      </main>
+    </>
+  );
 }
