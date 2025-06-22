@@ -19,7 +19,8 @@ export default function Home() {
         hoverFillColor="#f2f2f2"
       />
 
-      <main style={{ marginLeft: "130px", padding: "2rem" }}>
+      <main className="ml-[130px] p-8 max-[768px]:ml-0">
+
         <section id="Home">
           <Head />
         </section>

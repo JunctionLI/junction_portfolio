@@ -3,17 +3,29 @@ import Image from "next/image";
 import styles from "./Head.module.css";
 import { useState } from "react";
 import RotatingText from './RotatingText';
-import AboutMe from "../AboutMe/AboutMe";
 
 
 export default function Head() {
 
-    const [hovered, setHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
   return (
     <section className={styles.container}>
 
       <div className={styles.textSection}>
-        <p className={styles.name}> Junction Li </p>
+
+        <div className={styles.portraitContainer}>
+          <p className={styles.name}> Junction Li </p>
+          <Image
+            alt="LinkedIn"
+            src={isHovered ? "/assets/portrait2.gif" : "/assets/portrait1.gif"}
+            width={300}
+            height={300}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className={styles.image}
+            style={{ maxWidth: "90vw", height: "auto" }}
+          />
+        </div>
 
         <div className={styles.titleLineContainer}>
           <p className={styles.title}>Web Developer </p>

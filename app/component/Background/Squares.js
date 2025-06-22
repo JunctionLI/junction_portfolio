@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const Squares = ({
-  direction = "right",
+  direction = " down",
   speed = 1,
   borderColor = "#999",
   squareSize = 40,
@@ -11,38 +11,42 @@ const Squares = ({
 }) => {
   const canvasRef = useRef(null);
   const requestRef = useRef(null);
-  const numSquaresX = useRef(0);
-  const numSquaresY = useRef(0);
   const gridOffset = useRef({ x: 0, y: 0 });
   const hoveredSquareRef = useRef(null);
+  const [shouldRender, setShouldRender] = useState(false);
+
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkScreen = () => {
+        setShouldRender(window.innerWidth > 768);
+      };
+      checkScreen();
+      window.addEventListener("resize", checkScreen);
+      return () => window.removeEventListener("resize", checkScreen);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!shouldRender) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
 
-const resizeCanvas = () => {
-  const dpr = window.devicePixelRatio || 1;
-  const width = window.innerWidth;
-  const height = document.documentElement.scrollHeight;
+    const resizeCanvas = () => {
+      const dpr = window.devicePixelRatio || 1;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
 
-  canvas.style.width = width + "px";
-  canvas.style.height = height + "px";
-
-  canvas.width = width * dpr;
-  canvas.height = height * dpr;
-
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // 关键：缩放坐标系，保持 squareSize 看起来是物理 px
-};
-
-
-
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
 
     const drawGrid = () => {
-      if (!ctx) return;
-
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const startX = Math.floor(gridOffset.current.x / squareSize) * squareSize;
@@ -55,8 +59,7 @@ const resizeCanvas = () => {
 
           if (
             hoveredSquareRef.current &&
-            Math.floor((x - startX) / squareSize) ===
-            hoveredSquareRef.current.x &&
+            Math.floor((x - startX) / squareSize) === hoveredSquareRef.current.x &&
             Math.floor((y - startY) / squareSize) === hoveredSquareRef.current.y
           ) {
             ctx.fillStyle = hoverFillColor;
@@ -67,50 +70,11 @@ const resizeCanvas = () => {
           ctx.strokeRect(squareX, squareY, squareSize, squareSize);
         }
       }
-
-      const gradient = ctx.createRadialGradient(
-        canvas.width / 2,
-        canvas.height / 2,
-        0,
-        canvas.width / 2,
-        canvas.height / 2,
-        Math.sqrt(canvas.width ** 2 + canvas.height ** 2) / 2
-      );
-    
-
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
     const updateAnimation = () => {
       const effectiveSpeed = Math.max(speed, 0.1);
-      switch (direction) {
-        case "right":
-          gridOffset.current.x =
-            (gridOffset.current.x - effectiveSpeed + squareSize) % squareSize;
-          break;
-        case "left":
-          gridOffset.current.x =
-            (gridOffset.current.x + effectiveSpeed + squareSize) % squareSize;
-          break;
-        case "up":
-          gridOffset.current.y =
-            (gridOffset.current.y + effectiveSpeed + squareSize) % squareSize;
-          break;
-        case "down":
-          gridOffset.current.y =
-            (gridOffset.current.y - effectiveSpeed + squareSize) % squareSize;
-          break;
-        case "diagonal":
-          gridOffset.current.x =
-            (gridOffset.current.x - effectiveSpeed + squareSize) % squareSize;
-          gridOffset.current.y =
-            (gridOffset.current.y - effectiveSpeed + squareSize) % squareSize;
-          break;
-        default:
-          break;
-      }
-
+      gridOffset.current.x = (gridOffset.current.x - effectiveSpeed + squareSize) % squareSize;
       drawGrid();
       requestRef.current = requestAnimationFrame(updateAnimation);
     };
@@ -123,43 +87,37 @@ const resizeCanvas = () => {
       const startX = Math.floor(gridOffset.current.x / squareSize) * squareSize;
       const startY = Math.floor(gridOffset.current.y / squareSize) * squareSize;
 
-      const hoveredSquareX = Math.floor(
-        (mouseX + gridOffset.current.x - startX) / squareSize
-      );
-      const hoveredSquareY = Math.floor(
-        (mouseY + gridOffset.current.y - startY) / squareSize
-      );
-
-      if (
-        !hoveredSquareRef.current ||
-        hoveredSquareRef.current.x !== hoveredSquareX ||
-        hoveredSquareRef.current.y !== hoveredSquareY
-      ) {
-        hoveredSquareRef.current = { x: hoveredSquareX, y: hoveredSquareY };
-      }
+      hoveredSquareRef.current = {
+        x: Math.floor((mouseX + gridOffset.current.x - startX) / squareSize),
+        y: Math.floor((mouseY + gridOffset.current.y - startY) / squareSize),
+      };
     };
 
     const handleMouseLeave = () => {
       hoveredSquareRef.current = null;
     };
 
+    window.addEventListener("resize", resizeCanvas);
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("mouseleave", handleMouseLeave);
+    resizeCanvas();
     requestRef.current = requestAnimationFrame(updateAnimation);
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
-      if (requestRef.current) cancelAnimationFrame(requestRef.current);
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
+      if (requestRef.current) cancelAnimationFrame(requestRef.current);
     };
-  }, [direction, speed, borderColor, hoverFillColor, squareSize]);
+  }, [shouldRender, direction, speed, borderColor, hoverFillColor, squareSize]);
+
+  if (!shouldRender) return null;
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed z-[-1] w-full h-full border-none block"
-    ></canvas>
+      className="fixed z-[-1] w-full h-full pointer-events-none"
+    />
   );
 };
 
