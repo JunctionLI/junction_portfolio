@@ -1,9 +1,12 @@
 import VerticalMenu from "./component/VerticalMenu/VerticalMenu";
 import Squares from "./component/Background/Squares";
-import Head from "./component/Head/Head";
 import AboutMe from "./component/AboutMe/AboutMe";
-import Skill from "./component/Skill/Skill";
-import Project from "./component/Project/Project";
+import Project  from "./component/Project/Project";
+import { HeroScrollDemo } from "./component/ScrollImage/ScrollImage";
+import { CarouselDemo } from "./component/Carousel/CarouselDemo";
+import { MarqueeEffectDoubleExample } from "./component/Marquee/MarqueEffectDouble";
+import { DemoOne } from "./component/ScrollAnimation/ScrollAnimation";
+
 
 export default function Home() {
   return (
@@ -22,18 +25,22 @@ export default function Home() {
       <main className="ml-[130px] p-8 max-[768px]:ml-0">
 
         <section id="Home">
-          <Head />
+          <DemoOne/>
+          
+
         </section>
+
 
         <section id="About Me">
           <AboutMe />
         </section>
+        <MarqueeEffectDoubleExample/>        
 
-        <section id="Skills">
-          <Skill />
-        </section>
 
         <section id="Projects">
+          <HeroScrollDemo/>
+
+          <CarouselDemo/>
           <Project />
         </section>
       </main>

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import styles from "./VerticalMenu.module.css";
 import Image from "next/image";
 
-const menuItems = ["Home", "About Me", "Skills", "Projects"];
+const menuItems = ["Home", "About Me", "Projects"];
 
 export default function VerticalMenu() {
   const [active, setActive] = useState("Home");
@@ -13,14 +13,14 @@ export default function VerticalMenu() {
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    handleResize(); // 初始判断
+    handleResize(); 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleClick = (id) => {
     setActive(id);
-    setMenuOpen(false); // 点击后自动关闭菜单
+    setMenuOpen(false); 
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });

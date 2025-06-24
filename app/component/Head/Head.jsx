@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./Head.module.css";
 import { useState } from "react";
 import RotatingText from './RotatingText';
+import { HandWrittenTitle } from "@/component/HandWriting/hand-writing-text"
 
 
 export default function Head() {
@@ -14,7 +15,7 @@ export default function Head() {
       <div className={styles.textSection}>
 
         <div className={styles.portraitContainer}>
-          <p className={styles.name}> Junction Li </p>
+          <HandWrittenTitle title="Junction Li" className={styles.name} />
           <Image
             alt="LinkedIn"
             src={isHovered ? "/assets/portrait2.gif" : "/assets/portrait1.gif"}
@@ -24,6 +25,7 @@ export default function Head() {
             onMouseLeave={() => setIsHovered(false)}
             className={styles.image}
             style={{ maxWidth: "90vw", height: "auto" }}
+            unoptimized 
           />
         </div>
 
@@ -35,7 +37,7 @@ export default function Head() {
 
       <span className={styles.rotateTextContainer}>
         <RotatingText
-          texts={['+ Designer', '+ Photographer', '+ Multimedia creator']}
+          texts={['+ Designer', '+ Photographer', '+ Raver']}
           className={styles.rotateText}
           staggerFrom={"last"}
           initial={{ y: "100%" }}

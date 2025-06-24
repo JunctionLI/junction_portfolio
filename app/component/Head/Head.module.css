@@ -57,14 +57,14 @@
 
 .rotateText{
   font-size: 4.5rem;
+  color:white;
 }
 
 .rotateTextContainer{
   display: inline-block;
-  background-color: #97e6a4; 
+  background-color: rgb(148,44,202); 
   padding: 0.15rem 0.5rem;  
   border-radius: 0.25rem;   
-
 }
 
 

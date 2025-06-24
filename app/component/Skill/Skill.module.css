@@ -2,10 +2,9 @@
 
 .skillSection {
   display: flex;
-  color: #e55c00;
-  padding: 4rem 2rem;
-  gap: 3rem;
-  min-height: 100vh;
+  color: rgb(148, 44, 202);
+  padding: 1rem 1rem;
+  gap: 1rem;
 }
 
 .skillLeft {
@@ -33,7 +32,7 @@
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #e55c00;
+  color: rgb(148, 44, 202);
 }
 
 .skillIcons {
@@ -87,10 +86,10 @@
   font-weight: 800;
   text-transform: uppercase;
   z-index: 10;
-  color: #ff7a00;
+  color: rgb(148, 44, 202);
 }
 
 .skillRight span {
   color: transparent;
-  -webkit-text-stroke: 1px #e55c00;
+  -webkit-text-stroke: 1px rgb(148, 44, 202);
 }
