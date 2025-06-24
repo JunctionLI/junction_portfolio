@@ -6,6 +6,7 @@ import { HeroScrollDemo } from "./component/ScrollImage/ScrollImage";
 import { CarouselDemo } from "./component/Carousel/CarouselDemo";
 import { MarqueeEffectDoubleExample } from "./component/Marquee/MarqueEffectDouble";
 import { DemoOne } from "./component/ScrollAnimation/ScrollAnimation";
+import { ContactMe } from "./component/ContactMe/ContactMe";
 
 
 export default function Home() {
@@ -42,6 +43,9 @@ export default function Home() {
 
           <CarouselDemo/>
           <Project />
+        </section>
+        <section id="Contact">
+          <ContactMe/>
         </section>
       </main>
     </>

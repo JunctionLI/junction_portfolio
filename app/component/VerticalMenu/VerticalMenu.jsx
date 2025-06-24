@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import styles from "./VerticalMenu.module.css";
 import Image from "next/image";
 
-const menuItems = ["Home", "About Me", "Projects"];
+const menuItems = ["Home", "About Me", "Projects", "Contact"];
 
 export default function VerticalMenu() {
   const [active, setActive] = useState("Home");
