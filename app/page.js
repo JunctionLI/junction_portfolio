@@ -39,10 +39,11 @@ export default function Home() {
 
 
         <section id="Projects">
+          <Project />
           <HeroScrollDemo/>
 
           <CarouselDemo/>
-          <Project />
+          
         </section>
         <section id="Contact">
           <ContactMe/>

@@ -13,21 +13,28 @@ export default function AboutMe() {
 
 
   return (
-    <section className={styles.aboutSection}>  {/**use section instead of div, It represents a clearly defined section of content with semantic meaning. */}
-      <div className={styles.aboutLeft}>
-        <div className={styles.imageSection}>
-          <Image className={styles.imageDetail} height={800} width={800} src="/assets/body.png" alt="ai generate"/>
-        </div>
-        
-      </div>
+<section className="flex flex-col lg:flex-row flex-wrap min-h-screen font-sans px-4 sm:px-6 lg:px-8 gap-8">
+  {/* 左边 */}
+  <div className="w-full lg:flex-1 lg:max-w-[40%] p-8 lg:sticky top-0 h-auto lg:h-screen text-center">
+    <div className="flex justify-center items-center my-8 w-full max-w-[800px] sm:max-w-[600px] mx-auto">
+      <Image
+        className="w-full h-auto object-contain"
+        width={800}
+        height={800}
+        src="/assets/body.png"
+        alt="ai generate"
+      />
+    </div>
+  </div>
 
-      <div className={styles.aboutRight}>
-        <GlowCard width="100%" customSize={true}>  
-          <Introduction/>
-          <Skill/>
-        </GlowCard>
-        
-        </div>
-    </section>
+  {/* 右边 */}
+  <div className="w-full lg:flex-1 lg:max-w-[60%] flex flex-col gap-12 px-4 items-center justify-center">
+    <GlowCard width="100%" customSize={true} className="w-full max-w-[800px]">
+      <Introduction />
+      <Skill />
+    </GlowCard>
+  </div>
+</section>
+
   );
 }

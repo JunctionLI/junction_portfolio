@@ -24,44 +24,42 @@ const platforms = [
     return(
 
         
-        <div>
-        <div className="flex items-center justify-between p-6 rounded-3xl border border-gray-300 shadow-md bg-white max-w-5xl mx-auto">
-            {/* Left Section */}
-            <div className="flex items-center gap-4">
-                {/* Avatar */}
+        <div className="w-full">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between p-6 rounded-3xl border border-gray-300 shadow-md bg-white max-w-5xl mx-auto gap-4">
+              {/* Left Side: Avatar + Info */}
+              <div className="flex items-center gap-4">
                 <img
-                src="/assets/people.svg"
-                alt="avatar"
-                className="w-14 h-14 rounded-xl border border-gray-300"
+                  src="/assets/people.svg"
+                  alt="avatar"
+                  className="w-16 h-16 rounded-xl border border-gray-300"
                 />
-                {/* Info */}
                 <div>
-                <h2 className="text-xl font-semibold">Junction Li</h2>
-                <p className="text-gray-500 font-semibold tracking-wide">
-                    WEB DEVELOPER
-                </p>
+                  <h2 className="text-xl font-semibold">Junction Li</h2>
+                  <p className="text-gray-500 font-semibold tracking-wide">WEB DEVELOPER</p>
                 </div>
-            </div>
+              </div>
 
-            {/* Right Section - Socials */}
-            <div className="flex gap-4">
+              {/* Right Side: Social icons */}
+              <div className="flex gap-3 justify-center sm:justify-end">
                 {platforms.map((platform, index) => (
-                    <a
+                  <a
                     key={index}
                     href={platform.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-xl border border-gray-300 hover:shadow-sm transition"
-                    >
+                    className="w-9 h-9 flex items-center justify-center rounded-md border border-gray-300 hover:shadow-sm transition"
+                  >
                     <img
-                        src={`/assets/${platform.name}.svg`}
-                        alt={platform.name}
-                        className="w-5 h-5"
+                      src={`/assets/${platform.name}.svg`}
+                      alt={platform.name}
+                      className="w-5 h-5 object-contain"
                     />
-                    </a>
+                  </a>
                 ))}
-                </div>
+              </div>
             </div>
+
+
             
         <div className={styles.contentBlock}>
         <BlurText
@@ -70,7 +68,7 @@ const platforms = [
           animateBy="words"
           direction="top"
           onAnimationComplete={handleAnimationComplete}
-          className="text-3xl md:text-2xl font-extrabold leading-tight py-5"
+          className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight py-5 text-center sm:text-left"
         />
         <p className="py-2">Always learning, leading, and solving — growing with every step.</p>
 
@@ -105,6 +103,32 @@ const platforms = [
           <Badge label="University of Sheffield - Master of Accounting, Governance and Financial Management" />
         </div>
       </div>
+
+      {/* Core Stack */}
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold mb-2">Technical Set</h2>
+        <div className="flex flex-wrap gap-3">
+          <Badge label="JavaScript" />
+          <Badge label="TypeScript" />
+          <Badge label="Next.js" />
+          <Badge label="React" />
+          <Badge label="Python" />
+          <Badge label="C#" />
+          <Badge label="Docker" />
+          <Badge label="Firebase" />
+          <Badge label="MySQL" />
+          <Badge label="React Native" />
+          <Badge label="Tailwind" />
+          <Badge label="Bootstrap" />
+          <Badge label="Mantine" />
+          <Badge label="Figma" />
+          <Badge label="WordPress/WIX" />
+        </div>
+      </div>
+
+
+
+
         </div>
     );
 }

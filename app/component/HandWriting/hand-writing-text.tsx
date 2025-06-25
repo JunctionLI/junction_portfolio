@@ -57,7 +57,16 @@ function HandWrittenTitle({
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
                 >
-                    {title}
+                     {title.split("").map((char, index) => (
+                        <motion.span
+                        key={index}
+                        whileHover={{ y: -5 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                        className="inline-block -mr-[6px]"
+                        >
+                        {char === " " ? "\u00A0" : char}
+                        </motion.span>
+                    ))}
                 </motion.h1>
             </div>
         </div>

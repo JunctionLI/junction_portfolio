@@ -45,7 +45,7 @@ export function CarouselDemo() {
       title: "Tattooff Laser Removal",
       button: "Visit Website",
       src: "/assets/tattooff.png",
-      link:"tattooff.ca",
+      link:"https://tattooff.ca",
     },
     {
       title: "Walk for Wing Kei 2025",
