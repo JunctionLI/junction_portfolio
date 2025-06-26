@@ -2,10 +2,8 @@
 
 import { GlowCard } from "@/component/GlowCard/spotlight-card";
 import Skill from "../Skill/Skill";
-import styles from "./AboutMe.module.css";
 import Image from "next/image";
 import Introduction from "./Introduction";
-
 
 
 export default function AboutMe() {

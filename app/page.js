@@ -8,6 +8,7 @@ import { MarqueeEffectDoubleExample } from "./component/Marquee/MarqueEffectDoub
 import { DemoOne } from "./component/ScrollAnimation/ScrollAnimation";
 import { ContactMe } from "./component/ContactMe/ContactMe";
 import Footer from "./component/Footer/Footer";
+import { LiquidGlass } from "./component/AboutMe/liquid-glass";
 
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       />
 
       <main className="ml-[130px] p-8 max-[768px]:ml-0">
+        <LiquidGlass borderRadius={60} blur={1} />
 
         <section id="home">
           <DemoOne/>
