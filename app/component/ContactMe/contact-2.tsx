@@ -54,7 +54,7 @@ const sendEmail = (e: React.FormEvent) => {
       <GlowCard>
       <div className="container">
         <div className="mx-auto flex flex-col lg:flex-row justify-between gap-10 px-4 sm:px-6 md:px-10 lg:px-0 max-w-screen-xl">
-          <div className="mx-auto flex max-w-sm flex-col justify-between gap-10">
+           <div className="mx-auto flex w-full max-w-full md:max-w-xl flex-col justify-between gap-10">
             <div className="text-center lg:text-left">
               <h1 className="mb-2 text-5xl font-semibold lg:mb-1 lg:text-6xl py-10">
                 {title}
@@ -73,14 +73,14 @@ const sendEmail = (e: React.FormEvent) => {
 
             </div>
           </div>
-          <div className="mx-auto w-full max-w-xl flex flex-col gap-6 rounded-lg p-6 sm:p-6">
+          <div className="mx-auto w-full max-w-2xl flex flex-col gap-6 rounded-lg p-6 sm:p-6">
 
             <form
                 ref={formRef}
                 onSubmit={sendEmail}
-                className="mx-auto flex max-w-screen-md flex-col gap-6 rounded-lg p-10"
+                className="w-full flex flex-col gap-6 rounded-lg p-6 sm:p-10"
               >
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex w-full flex-col sm:flex-row gap-4">
                   <div className="w-full">
                     <label htmlFor="firstname" className="block text-sm font-medium">First Name</label>
                     <Input type="text" id="firstname" name="firstname" placeholder="First Name" />
@@ -105,7 +105,7 @@ const sendEmail = (e: React.FormEvent) => {
                     id="message"
                     name="message"
                     placeholder="Please type your message here."
-                    className="min-h-[120px] rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="min-h-[150px] w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   />
 
                 </div>

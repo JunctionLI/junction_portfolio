@@ -4,23 +4,54 @@ import { useState, useEffect } from "react";
 import styles from "./VerticalMenu.module.css";
 import Image from "next/image";
 
-const menuItems = ["Home", "About Me", "Projects", "Contact"];
+const menuItems = [
+  { id: "home", label: "Home" },
+  { id: "about-me", label: "About Me" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
+];
 
 export default function VerticalMenu() {
-  const [active, setActive] = useState("Home");
+  const [active, setActive] = useState("home");
   const [isMobile, setIsMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Resize check
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    handleResize(); 
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Auto highlight based on scroll (IntersectionObserver)
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute("id");
+          if (id) setActive(id);
+        }
+      });
+    }, observerOptions);
+
+    menuItems.forEach((item) => {
+      const section = document.getElementById(item.id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const handleClick = (id) => {
     setActive(id);
-    setMenuOpen(false); 
+    setMenuOpen(false);
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -37,17 +68,17 @@ export default function VerticalMenu() {
             <div className={`${styles.bar} ${menuOpen ? styles.open : ""}`}></div>
           </div>
 
-          {menuOpen &&(
+          {menuOpen && (
             <div className={styles.mobileMenu}>
               <div className={styles.closeBtn} onClick={() => setMenuOpen(false)}>✕</div>
 
               {menuItems.map(item => (
                 <div
-                  key={item}
-                  className={`${styles.navItem} ${active === item ? styles.active : ''}`}
-                  onClick={() => handleClick(item)}
+                  key={item.id}
+                  className={`${styles.navItem} ${active === item.id ? styles.active : ''}`}
+                  onClick={() => handleClick(item.id)}
                 >
-                  {item}
+                  {item.label}
                 </div>
               ))}
 
@@ -67,18 +98,22 @@ export default function VerticalMenu() {
         </div>
       ) : (
         <div className={styles.sidebar}>
-          <div className={styles.logo}>
+          <div
+            className={styles.logo}
+            onClick={() => handleClick("home")}
+            style={{ cursor: "pointer" }}
+          >
             <Image src="/assets/logo.png" alt="logo" width={32} height={32} />
           </div>
 
           <nav className={styles.nav}>
             {menuItems.map(item => (
               <div
-                key={item}
-                className={`${styles.navItem} ${active === item ? styles.active : ''}`}
-                onClick={() => handleClick(item)}
+                key={item.id}
+                className={`${styles.navItem} ${active === item.id ? styles.active : ''}`}
+                onClick={() => handleClick(item.id)}
               >
-                {item}
+                {item.label}
               </div>
             ))}
           </nav>

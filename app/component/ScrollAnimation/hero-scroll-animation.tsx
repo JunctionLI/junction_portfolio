@@ -3,8 +3,6 @@
 
 import { useScroll, useTransform, motion, MotionValue } from 'motion/react';
 import Head from "@/component/Head/Head";
-import AboutMe from "@/component/AboutMe/AboutMe";
-
 import React, { useRef, forwardRef } from 'react';
 
 interface SectionProps {

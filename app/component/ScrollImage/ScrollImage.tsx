@@ -29,11 +29,11 @@ export function HeroScrollDemo() {
         />
       </ContainerScroll>
 
-      <div className="flex flex-col md:flex-row justify-between">
-        <SparklesText text="Logo & Branding Design" className="text-2xl" />
-        <SparklesText text="SEO & Marketing Strategy" className="text-2xl" />
-        <SparklesText text="Customize Social Media Creator" className="text-2xl" />
-      </div>
+        <div className="flex flex-col md:flex-row justify-between">
+          <SparklesText text="Logo & Branding Design" className="text-2xl" />
+          <SparklesText text="SEO & Marketing Strategy" className="text-2xl" />
+          <SparklesText text="Customize Social Media Creator" className="text-2xl" />
+        </div>
       
     </div>
   );

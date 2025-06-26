@@ -7,6 +7,7 @@ import { CarouselDemo } from "./component/Carousel/CarouselDemo";
 import { MarqueeEffectDoubleExample } from "./component/Marquee/MarqueEffectDouble";
 import { DemoOne } from "./component/ScrollAnimation/ScrollAnimation";
 import { ContactMe } from "./component/ContactMe/ContactMe";
+import Footer from "./component/Footer/Footer";
 
 
 export default function Home() {
@@ -25,29 +26,32 @@ export default function Home() {
 
       <main className="ml-[130px] p-8 max-[768px]:ml-0">
 
-        <section id="Home">
+        <section id="home">
           <DemoOne/>
           
 
         </section>
 
 
-        <section id="About Me">
+        <section id="about-me">
           <AboutMe />
         </section>
         <MarqueeEffectDoubleExample/>        
 
 
-        <section id="Projects">
+        <section id="projects">
           <Project />
           <HeroScrollDemo/>
-
           <CarouselDemo/>
-          
         </section>
-        <section id="Contact">
+
+          
+
+
+        <section id="contact">
           <ContactMe/>
         </section>
+        <Footer/>
       </main>
     </>
   );

@@ -14,7 +14,7 @@ const IMAGES = [
 export const Capstone = () => {
   return (
     <section>
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-8 px-8 py-12 md:grid-cols-2">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-8 px-8 py-5 md:grid-cols-2">
         <ContainerStagger>
           <ContainerAnimated className="mb-4 block text-xs font-medium text-rose-500 md:text-sm">
             SAIT Capstone Project
