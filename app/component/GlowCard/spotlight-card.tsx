@@ -1,6 +1,26 @@
 "use client"
 
 import React, { useEffect, useRef, ReactNode } from 'react';
+import { CSSProperties } from 'react';
+
+const baseStyles = {
+  '--base': 0,
+  '--spread': 0,
+  '--radius': '0px',
+  '--border': 'none',
+  '--backdrop': 'none',
+  '--backup-border': 'none',
+  '--size': '0px',
+  '--outer': '0px',
+  '--border-size': '0px',
+  '--spotlight-size': '0px',
+  '--fallback-opacity': '1',
+  '--blur-opacity': '1',
+  '--glow-opacity': '1',
+  '--highlight-opacity': '1',
+  touchAction: 'none',
+} as { [key: string]: string | number };
+
 
 interface GlowCardProps {
   children: ReactNode;
@@ -93,12 +113,12 @@ const GlowCard: React.FC<GlowCardProps> = ({
     };
 
     // Add width and height if provided
-    if (width !== undefined) {
-      baseStyles.width = typeof width === 'number' ? `${width}px` : width;
-    }
-    if (height !== undefined) {
-      baseStyles.height = typeof height === 'number' ? `${height}px` : height;
-    }
+      if (width !== undefined) {
+        baseStyles['width'] = typeof width === 'number' ? `${width}px` : width;
+      }
+      if (height !== undefined) {
+        baseStyles['height'] = typeof height === 'number' ? `${height}px` : height;
+      }
 
     return baseStyles;
   };

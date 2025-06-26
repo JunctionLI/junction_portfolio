@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
+
 interface HandWrittenTitleProps {
     title?: string;
     subtitle?: string;
@@ -11,16 +12,17 @@ function HandWrittenTitle({
     subtitle = "Optional subtitle",
 }: HandWrittenTitleProps) {
     const draw = {
-        hidden: { pathLength: 0, opacity: 0 },
-        visible: {
-            pathLength: 1,
-            opacity: 1,
-            transition: {
-                pathLength: { duration: 2.5, ease: [0.43, 0.13, 0.23, 0.96] },
-                opacity: { duration: 0.5 },
-            },
-        },
-    };
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: {
+    pathLength: 1,
+    opacity: 1,
+    transition: {
+      pathLength: { duration: 2.5, ease: cubicBezier(0.43, 0.13, 0.23, 0.96) },
+      opacity: { duration: 0.5 },
+    },
+  },
+};
+
 
     return (
         <div className="relative w-full max-w-4xl mx-auto py-24">

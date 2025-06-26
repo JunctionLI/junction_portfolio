@@ -1,4 +1,4 @@
-import { MarqueeAnimation } from "@/component/marquee/marquee-effect";
+import { MarqueeAnimation } from "@/component/Marquee/marquee-effect";
 
 function MarqueeEffectDoubleExample() {
   return (
@@ -15,7 +15,7 @@ function MarqueeEffectDoubleExample() {
         baseVelocity={-3}
         className="bg-purple-500 text-white py-2"
       >
-        But they won't give me the source code
+        But they won&apos;t give me the source code
       </MarqueeAnimation>
     </div>
   );
