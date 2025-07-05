@@ -26,7 +26,7 @@ export default function Home() {
       />
 
       <main className="ml-[130px] p-8 max-[768px]:ml-0">
-        <LiquidGlass borderRadius={60} blur={1} />
+        
 
         <section id="home">
           <DemoOne/>

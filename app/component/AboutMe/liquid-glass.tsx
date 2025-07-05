@@ -1,6 +1,6 @@
 "use client";
 
-import { CSSProperties, useRef, useEffect, useState} from "react";
+import { CSSProperties, useRef } from "react";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -16,16 +16,6 @@ type LiquidGlassProps = {
 };
 
 export const LiquidGlass = (props: LiquidGlassProps) => {
-
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const userAgent = typeof window.navigator === "undefined" ? "" : navigator.userAgent;
-        const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-        const isMobileAgent = /Mobi|Android|iPhone|iPad|iPod/i.test(userAgent);
-        setIsMobile(isTouchDevice || isMobileAgent);
-    }, []);
-
     const { width = 120, height = 120, borderRadius = 12, tintOpacity = 0.1, blur = 2 } = props;
 
     const glassRef = useRef<HTMLDivElement>(null);
@@ -62,8 +52,6 @@ export const LiquidGlass = (props: LiquidGlassProps) => {
             window?.removeEventListener("mousemove", mouseMove);
         };
     }, []);
-
-    if (isMobile) return null;
 
     return (
         <>

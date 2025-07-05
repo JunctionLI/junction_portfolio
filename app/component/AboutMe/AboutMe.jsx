@@ -4,6 +4,7 @@ import { GlowCard } from "@/component/GlowCard/spotlight-card";
 import Skill from "../Skill/Skill";
 import Image from "next/image";
 import Introduction from "./Introduction";
+import { LiquidGlass } from "./liquid-glass";
 
 
 export default function AboutMe() {
@@ -15,6 +16,7 @@ export default function AboutMe() {
   {/* 左边 */}
   <div className="w-full lg:flex-1 lg:max-w-[40%] p-8 lg:sticky top-0 h-auto lg:h-screen text-center">
     <div className="flex justify-center items-center my-8 w-full max-w-[800px] sm:max-w-[600px] mx-auto">
+      <LiquidGlass borderRadius={60} blur={1} />
       <Image
         className="w-full h-auto object-contain"
         width={800}
