@@ -18,7 +18,6 @@ const baseStyles = {
   '--blur-opacity': '1',
   '--glow-opacity': '1',
   '--highlight-opacity': '1',
-  touchAction: 'none',
 } as { [key: string]: string | number };
 
 
@@ -109,7 +108,6 @@ const GlowCard: React.FC<GlowCardProps> = ({
       backgroundAttachment: 'fixed',
       border: 'var(--border-size) solid var(--backup-border)',
       position: 'relative' as const,
-      touchAction: 'none' as const,
     };
 
     // Add width and height if provided
