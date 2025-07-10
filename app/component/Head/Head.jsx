@@ -30,7 +30,7 @@ export default function Head() {
         </div>
 
         <div className={styles.titleLineContainer}>
-          <p className={styles.title}>Web Developer </p>
+          <p className={styles.title}>Software Developer </p>
           <p className={styles.line}> ——————</p>
         </div>
 
