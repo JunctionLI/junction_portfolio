@@ -1,8 +1,11 @@
+"use client"
+import{ useState } from "react";
 import {   ContainerAnimated,
   ContainerStagger,
   GalleryGrid,
   GalleryGridCell,
  } from "@/component/Project/cta-section-with-gallery";
+import { FullscreenImageOverlay } from "@/component/Project/FullscreenImageOverlay" 
 
 const IMAGES = [
   "/assets/capstone1.png",
@@ -12,6 +15,9 @@ const IMAGES = [
 ]
 
 export const Capstone = () => {
+
+  const[selectedImage, setSelectedImage ] =useState <null|string>(null);
+
   return (
     <section>
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-8 px-8 py-5 md:grid-cols-2">
@@ -28,18 +34,34 @@ export const Capstone = () => {
 
         <GalleryGrid>
           {IMAGES.map((imageUrl, index) => (
-            <GalleryGridCell index={index} key={index}>
+            <GalleryGridCell
+              index={index}
+              key={index}
+              onClick={() => {
+                console.log("Clicked:", imageUrl)
+                setSelectedImage(imageUrl)
+              }}
+            >
               <img
-                className="size-full object-cover object-center"
+                className="size-full object-cover object-center pointer-events-none"
                 width="100%"
                 height="100%"
                 src={imageUrl}
-                alt=""
+                alt={`Capstone Image ${index + 1}`}
               />
             </GalleryGridCell>
+
           ))}
         </GalleryGrid>
       </div>
+
+      {selectedImage && (
+        <FullscreenImageOverlay
+          src={selectedImage}
+          onClose={() => setSelectedImage(null)}
+        />
+      )}
+
     </section>
   )
 }

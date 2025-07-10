@@ -77,9 +77,9 @@ const platforms = [
         <div className="mb-6">
         <h2 className="text-xl font-semibold mb-2">Experience</h2>
         <div className="flex flex-wrap gap-3">
-          <Badge label="Web Designer | since 2024 " />
-          <Badge label="Event and Fund Development Assistant | since 2025.04" />
-          <Badge label="Multimedia Assistant | 2024.05 - 2024.12" />
+          <Badge label="Web Designer | since 2024 | Build up website for 5 small and medium size companies " />
+          <Badge label="Event and Fund Development Assistant | since 2025.04 | Event Hosting & Website Maintenance" />
+          <Badge label="Multimedia Assistant | 2024.05 - 2024.12 | Website Maintenance & Social Media Creator" />
           <Badge label="Bond Trader | 2019.07 - 2023.07 " />
           <Badge label="Junior Financial Consultant | 2019.01 - 2019.07" />
         </div>

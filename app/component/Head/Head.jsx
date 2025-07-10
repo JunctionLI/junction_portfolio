@@ -37,7 +37,7 @@ export default function Head() {
 
       <span className={styles.rotateTextContainer}>
         <RotatingText
-          texts={['+ Designer', '+ Photographer', '+ Raver']}
+          texts={['+ Designer', '+ Photographer', '+ Creator']}
           className={styles.rotateText}
           staggerFrom={"last"}
           initial={{ y: "100%" }}

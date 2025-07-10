@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 
 interface GalleryGridCellProps extends HTMLMotionProps<"div"> {
   index: number
+  onClick?:() => void
 }
 
 const SPRING_TRANSITION_CONFIG: Transition = {
@@ -95,8 +96,9 @@ GalleryGrid.displayName = "ContainerSticky"
 
 export const GalleryGridCell = React.forwardRef<
   HTMLDivElement,
-  GalleryGridCellProps
->(({ className, transition, index, ...props }, ref) => {
+  GalleryGridCellProps &{
+  }
+>(({ className, transition, index, onClick, ...props }, ref) => {
   return (
     <motion.div
       ref={ref}
@@ -109,10 +111,11 @@ export const GalleryGridCell = React.forwardRef<
         delayChildren: transition?.delayChildren ?? 0.2,
       }}
       className={cn(
-        "relative overflow-hidden rounded-xl shadow-xl",
+        "relative overflow-hidden rounded-xl shadow-xl cursor-pointer",
         areaClasses[index],
         className
       )}
+      onClick={onClick}
       {...props}
     />
   )
