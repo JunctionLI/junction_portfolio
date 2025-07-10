@@ -3,9 +3,9 @@ import styles from "./AboutMe.module.css";
 
 function Badge({ label }) {
   return (
-    <span className="px-4 py-2 bg-gray-100 rounded-full shadow-sm text-sm text-gray-800">
-      {label}
-    </span>
+<span className="px-7 py-3 bg-gray-100 rounded-full shadow-sm text-sm text-gray-800 max-w-full break-words">
+  {label}
+</span>
   );
 }
 
