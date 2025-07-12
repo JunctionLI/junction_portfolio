@@ -100,6 +100,7 @@
   border-radius: 8px;
   cursor: pointer;
   margin-top: 1.5rem;
+  z-index:50;
 }
 
 .downloadBtn:hover {
@@ -179,6 +180,7 @@
     font-size: 0.9rem;
     padding: 0.6rem 1.2rem;
     margin-top: 1rem;
+    cursor: pointer;
   }
 
   .socialIcons {
