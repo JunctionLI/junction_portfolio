@@ -30,8 +30,6 @@ export default function Home() {
 
         <section id="home">
           <DemoOne/>
-          
-
         </section>
 
 

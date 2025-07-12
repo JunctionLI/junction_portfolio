@@ -17,7 +17,7 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
       style={{ scale, rotate }}
       className='sticky  font-semibold top-0 h-screen'
     >
-      <div className='absolute bottom-0 left-0 right-0 top-0 bg-transparent'>
+      <div className='absolute bottom-0 left-0 right-0 top-0 bg-transparent z-20 pointer-events-auto'>
 
         <Head/>
       </div>
@@ -36,7 +36,7 @@ const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
       style={{ scale, rotate }}
       className='relative h-screen '
     >
-      <div className='absolute bottom-0 left-0 right-0 top-0'></div>
+      <div className='absolute bottom-0 left-0 right-0 top-0 z-0'></div>
       <article className='container mx-auto relative z-10 '>
         <div className='grid grid-cols-4 gap-4'>
             
