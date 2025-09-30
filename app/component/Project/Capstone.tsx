@@ -28,7 +28,7 @@ export const Capstone = () => {
           <ContainerAnimated className="text-4xl font-semibold md:text-[2.4rem] tracking-tight">
             Orbit Inventory Management System
           </ContainerAnimated>
-          <ContainerAnimated className="my-4 text-base text-slate-700 md:my-6 md:text-lg py-10">
+          <ContainerAnimated className="my-4 text-base text-slate-700 md:my-6 md:text-lg py-8">
             Designed intuitive UI/UX with Figma and developed a scalable inventory system using Next.js, React, and TypeScript. Integrated Firebase, built RESTful APIs, and implemented features like role-based access and low-stock alerts. Completed over 8 months from draft to deployment by a team of five.          </ContainerAnimated>
         </ContainerStagger>
 
