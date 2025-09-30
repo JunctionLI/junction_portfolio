@@ -15,7 +15,7 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
   return (
     <motion.section
       style={{ scale, rotate }}
-      className='sticky  font-semibold top-0 h-screen'
+      className='sticky font-semibold top-0 h-screen'
     >
       <div className='absolute bottom-0 left-0 right-0 top-0 bg-transparent z-20 pointer-events-auto'>
 
@@ -37,7 +37,7 @@ const Component = forwardRef<HTMLElement>((props, ref) => {
 
   return (
     <>
-      <main ref={container} className='relative h-[200vh]'>
+      <main ref={container} className='relative h-[100vh]'>
         <Section1 scrollYProgress={scrollYProgress} />
        
       </main>

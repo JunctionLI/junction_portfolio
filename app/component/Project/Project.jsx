@@ -1,4 +1,3 @@
-import { SparklesText } from "../SparkleText/sparkles-text";
 import { Capstone } from "./Capstone";
 import { AIProject} from "./AIProject";
 import styles from "./Project.module.css";

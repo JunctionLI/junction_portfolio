@@ -4,11 +4,11 @@ import AboutMe from "./component/AboutMe/AboutMe";
 import Project  from "./component/Project/Project";
 import { HeroScrollDemo } from "./component/ScrollImage/ScrollImage";
 import { CarouselDemo } from "./component/Carousel/CarouselDemo";
+import GraphicDesign from './component/GraphicDesign/GraphicDesign';
 import { MarqueeEffectDoubleExample } from "./component/Marquee/MarqueEffectDouble";
 import { DemoOne } from "./component/ScrollAnimation/ScrollAnimation";
 import { ContactMe } from "./component/ContactMe/ContactMe";
 import Footer from "./component/Footer/Footer";
-import { LiquidGlass } from "./component/AboutMe/liquid-glass";
 
 
 export default function Home() {
@@ -41,8 +41,10 @@ export default function Home() {
 
         <section id="projects">
           <Project />
-          <HeroScrollDemo/>
           <CarouselDemo/>
+          <HeroScrollDemo/>
+          
+          <GraphicDesign/>
         </section>
 
           
