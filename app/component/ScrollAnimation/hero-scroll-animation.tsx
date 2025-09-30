@@ -37,7 +37,7 @@ const Component = forwardRef<HTMLElement>((props, ref) => {
 
   return (
     <>
-      <main ref={container} className='relative h-[100vh]'>
+      <main ref={container} className='relative h-[200vh]'>
         <Section1 scrollYProgress={scrollYProgress} />
        
       </main>

@@ -85,7 +85,7 @@ export const GalleryGrid = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        "grid grid-cols-2 grid-rows-[50px_150px_50px_150px_50px] gap-4",
+        "grid grid-cols-2 grid-rows-[30px_150px_30px_150px_30px] gap-4",
         className
       )}
       {...props}

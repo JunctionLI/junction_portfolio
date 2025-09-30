@@ -50,16 +50,16 @@ const sendEmail = (e: React.FormEvent) => {
 
 
   return (
-    <section className="py-32">
+    <section className="py-20 px-4">
       <GlowCard>
       <div className="container">
-        <div className="mx-auto flex flex-col lg:flex-row justify-between gap-10 px-4 sm:px-6 md:px-10 lg:px-0 max-w-screen-xl">
+        <div className="mx-auto flex flex-col lg:flex-row justify-between gap-10 px-3 sm:px-6 md:px-6 lg:px-0 max-w-screen-xl">
            <div className="mx-auto flex w-full max-w-full md:max-w-xl flex-col justify-between gap-10">
             <div className="text-center lg:text-left">
-              <h1 className="mb-2 text-5xl font-semibold lg:mb-1 lg:text-6xl py-10">
+              <h1 className="mb-2 text-5xl font-semibold lg:mb-1 lg:text-6xl py-8">
                 {title}
               </h1>
-              <p className="text-muted-foreground text-xl py-10">{description}</p>
+              <p className="text-muted-foreground text-m py-5">{description}</p>
             </div>
             <div className="mx-auto w-fit lg:mx-0">
               <h3 className="mb-6 text-center text-2xl font-semibold lg:text-left">
@@ -73,12 +73,12 @@ const sendEmail = (e: React.FormEvent) => {
 
             </div>
           </div>
-          <div className="mx-auto w-full max-w-2xl flex flex-col gap-6 rounded-lg p-6 sm:p-6">
+          <div className="mx-auto w-full max-w-md flex flex-col gap-6 rounded-lg p-1 sm:p-1">
 
             <form
                 ref={formRef}
                 onSubmit={sendEmail}
-                className="w-full flex flex-col gap-6 rounded-lg p-6 sm:p-10"
+                className="w-full flex flex-col gap-6"
               >
                 <div className="flex w-full flex-col sm:flex-row gap-4">
                   <div className="w-full">

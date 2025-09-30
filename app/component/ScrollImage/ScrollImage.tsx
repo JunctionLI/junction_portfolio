@@ -28,7 +28,7 @@ export function HeroScrollDemo() {
         />
       </ContainerScroll>
 
-        <div className="flex flex-col md:flex-row justify-between">
+        <div className="flex flex-col md:flex-row justify-between px-4">
           <SparklesText text="Graphic Design" className="text-2xl" />
           <SparklesText text="SEO & Social Media Strategy" className="text-2xl" />
           <SparklesText text="Event & Product Photography" className="text-2xl" />

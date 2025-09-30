@@ -6,16 +6,14 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 export default function TitlebarBelowMasonryImageList() {
-  // 判断屏幕宽度，移动端1列，桌面3列
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const [cols, setCols] = React.useState(isMobile ? 1 : 3);
+  const [cols, setCols] = React.useState(3);
+  const [openImg, setOpenImg] = React.useState(null);
 
   React.useEffect(() => {
-    const handleResize = () => {
-      setCols(window.innerWidth < 768 ? 1 : 3);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const updateCols = () => setCols(window.innerWidth < 768 ? 1 : 3);
+    updateCols();
+    window.addEventListener("resize", updateCols);
+    return () => window.removeEventListener("resize", updateCols);
   }, []);
 
   return (
@@ -28,12 +26,25 @@ export default function TitlebarBelowMasonryImageList() {
               src={`${item.img}?w=248&fit=crop&auto=format`}
               alt={item.title}
               loading="lazy"
-              style={{ width: "100%", height: "auto" }}
+              style={{ width: "100%", height: "auto", cursor: "pointer" }}
+              onClick={() => setOpenImg(item.img)}
             />
             <ImageListItemBar position="below" title={item.author} />
           </ImageListItem>
         ))}
       </ImageList>
+      {openImg && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setOpenImg(null)}
+        >
+          <img
+            src={openImg}
+            alt="enlarged"
+            className="max-w-full max-h-full rounded-lg shadow-2xl"
+          />
+        </div>
+      )}
     </Box>
   );
 }
