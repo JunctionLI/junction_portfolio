@@ -20,7 +20,7 @@ export const AIProject = () => {
 
   return (
     <section>
-      <div className="mx-auto w-full max-w-6xl flex flex-col-reverse md:grid md:grid-cols-2 items-center px-8 py-5">
+      <div className="mx-auto w-full max-w-6xl flex flex-col-reverse md:grid md:grid-cols-2 items-center md:gap-x-16 px-8 py-5">
         <GalleryGrid>
           {IMAGES.map((imageUrl, index) => (
             <GalleryGridCell
