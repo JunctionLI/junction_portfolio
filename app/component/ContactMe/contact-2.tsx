@@ -83,21 +83,21 @@ const sendEmail = (e: React.FormEvent) => {
                 <div className="flex w-full flex-col sm:flex-row gap-4">
                   <div className="w-full">
                     <label htmlFor="firstname" className="block text-sm font-medium">First Name</label>
-                    <Input type="text" id="firstname" name="firstname" placeholder="First Name" />
+                    <Input type="text" id="firstname" name="firstname" placeholder="First Name" required/>
                   </div>
                   <div className="w-full">
                     <label htmlFor="lastname" className="block text-sm font-medium">Last Name</label>
-                    <Input type="text" id="lastname" name="lastname" placeholder="Last Name" />
+                    <Input type="text" id="lastname" name="lastname" placeholder="Last Name" required/>
                   </div>
                 </div>
 
                 <div className="grid w-full items-center gap-1.5">
                   <label htmlFor="email">Email</label>
-                  <Input type="email" id="email" name="email" placeholder="Email" />
+                  <Input type="email" id="email" name="email" placeholder="Email" required/>
                 </div>
                 <div className="grid w-full items-center gap-1.5">
                   <label htmlFor="subject">Subject</label>
-                  <Input type="text" id="subject" name="subject" placeholder="Subject" />
+                  <Input type="text" id="subject" name="subject" placeholder="Subject" required />
                 </div>
                 <div className="grid w-full gap-1.5">
                   <label htmlFor="message">Message</label>
@@ -106,6 +106,7 @@ const sendEmail = (e: React.FormEvent) => {
                     name="message"
                     placeholder="Please type your message here."
                     className="min-h-[150px] w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    required
                   />
 
                 </div>
